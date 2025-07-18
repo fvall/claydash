@@ -1,10 +1,10 @@
-use super::HoverCallback;
-use super::State;
 use super::clay;
 use super::handlers::{handle_chart_click, handle_exit, handle_reset};
 use super::misc;
 use super::scheme::SchemeUi;
 use super::sidebar::{create_chart_menu, create_dist_menu, create_sim_button};
+use super::HoverCallback;
+use super::State;
 use crate::math;
 
 pub const BUTTON_RESET: &str = "Reset";
@@ -79,10 +79,6 @@ fn create_header_button(name: &'static str, action: Option<(HoverCallback, isize
     let id = name;
     let mut button = define_button(id, scheme);
     if unsafe { clay::Clay_PointerOver(button.id) } {
-        // button.border = clay::Clay_BorderElementConfig {
-        //     color: scheme.header.button.hover,
-        //     width: clay::Clay_BorderWidth { left: 4, right: 4, top: 4, bottom: 4, betweenChildren: 0 },
-        // };
         button.backgroundColor = scheme.header.button.hover;
     }
 
